@@ -21,11 +21,22 @@ pip install pandas ics pytz
 ```bash
 python excel_to_ics.py path_to_excel_file.xlsx
 ```
-
-2. 不使用命令行参数，脚本将使用默认的 Excel 文件路径 `exam_info.xlsx` 并生成 `exam_schedule.ics` 文件：
+例如：
 
 ```bash
-python script_name.py
+python excel_to_ics.py ./data/2024-2025-1.xlsx
+```
+
+2. 不使用命令行参数，脚本将提示输入文件路径（支持 Excel 或 txt 文件），并生成相应的 ICS 文件：
+
+```bash
+python excel_to_ics.py
+```
+
+在运行脚本后，输入文件路径，例如：
+
+```plaintext
+请输入文件路径（支持Excel或txt文件）：./data/2024-2025-1.xlsx
 ```
 
 ### Excel 文件格式
