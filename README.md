@@ -39,17 +39,20 @@ python excel_to_ics.py
 请输入文件路径（支持Excel或txt文件）：./data/2024-2025-1.xlsx
 ```
 
-### Excel 文件格式
+### 文件格式
 
-Excel 文件应包含以下列：
+Excel 文件或 txt 文件应包含以下列：
 
 - `课程名称`：课程的名称
 - `考试地点`：考试的地点
 - `考试时间`：考试的时间，格式为 `YYYY-MM-DD (HH:MM-HH:MM)`
 
 ### 示例
+Excel 文件 或 txt 文件可以从 [上海交通大学教学信息服务网 > 信息查询 > 考试信息查询](https://i.sjtu.edu.cn/kwgl/kscx_cxXsksxxIndex.html?gnmkdm=N358105&layout=default) 导出。
 
-假设你的 Excel 文件 `exam_info.xlsx` 内容如下：
+
+
+假设你的 Excel 文件 `exam_info.xlsx` 或 txt 文件 `exam_info.txt` 内容如下：
 
 | 课程名称 | 考试地点 | 考试时间                |
 | -------- | -------- | ----------------------- |
@@ -60,5 +63,5 @@ Excel 文件应包含以下列：
 
 ### 注意事项
 
-- 确保 Excel 文件中的日期和时间格式正确。
+- 确保 Excel 文件或 txt 文件中的日期和时间格式正确。
 - 脚本默认使用 `Asia/Shanghai` 时区。
