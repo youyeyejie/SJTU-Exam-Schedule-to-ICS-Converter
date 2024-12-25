@@ -35,6 +35,8 @@ pip install ics pytz pysjtu
     python exam_to_ics2.py
     ```
 
+3. 运行脚本后，将在运行目录下创建一个名为`data`的文件夹，并在其中生成一个名为 `{学年}-{学期}考试安排.ics` 的 ICS 文件，包含所有考试安排。
+
 ### 数据格式
 
 脚本假设考试安排信息存储在一个列表中，每个考试信息是一个字典，包含以下字段：
@@ -90,6 +92,8 @@ pip install pandas ics pytz
     请输入文件路径（支持Excel或txt文件）：./data/2024-2025-1.xlsx
     ```
 
+3. 运行脚本后，将在存放 Excel 文件或 txt 文件的目录生成一个名为同名的 ICS 文件，包含所有考试安排。
+
 ### 文件格式
 
 Excel 文件或 txt 文件应包含以下列：
@@ -101,16 +105,12 @@ Excel 文件或 txt 文件应包含以下列：
 ### 示例
 Excel 文件 或 txt 文件可以从 [上海交通大学教学信息服务网 > 信息查询 > 考试信息查询](https://i.sjtu.edu.cn/kwgl/kscx_cxXsksxxIndex.html?gnmkdm=N358105&layout=default) 导出。
 
-
-
 假设你的 Excel 文件 `exam_info.xlsx` 或 txt 文件 `exam_info.txt` 内容如下：
 
 | 课程名称 | 考试地点 | 考试时间                |
 | -------- | -------- | ----------------------- |
 | 数学     | 教室101  | 2023-12-20 (09:00-11:00) |
 | 英语     | 教室102  | 2023-12-21 (13:00-15:00) |
-
-运行脚本后，将生成一个名为 `exam_schedule.ics` 的 ICS 文件，包含所有考试安排。
 
 ### 注意事项
 
