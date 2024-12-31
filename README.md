@@ -1,17 +1,17 @@
 # Exam Schedule to ICS Converter
 
-`exam_to_ics2`是最新版本，无需用户从教学信息服务网导出考试安排，通过`pysjtu`库抓取考试安排，并数据源转换为 ICS 文件，以便导入到日历应用中。
+[**exam_to_ics2**](#exam_to_ics2)是最新版本，无需用户从教学信息服务网导出考试安排，通过`pysjtu`库抓取考试安排，并数据源转换为 ICS 文件，以便导入到日历应用中。
 
-`excel_to_ics`用于将 SJTU 教学信息服务网导出的考试安排从 Excel 文件转换为 ICS 文件，以便导入到日历应用中。
+[**excel_to_ics**](#excel_to_ics)用于将 SJTU 教学信息服务网导出的考试安排从 Excel 文件转换为 ICS 文件，以便导入到日历应用中。
 
-## `exam_to_ics2`使用方法
+## `exam_to_ics2`使用方法 {#exam_to_ics2}
 
 ### 依赖安装
 
 在运行脚本之前，请确保已安装以下依赖项：
 
 ```bash
-pip install ics pytz pysjtu
+pip install icalender pytz pysjtu
 ```
 
 ### 运行脚本
@@ -55,14 +55,14 @@ pip install ics pytz pysjtu
 - 脚本默认使用 `Asia/Shanghai` 时区。
 
 
-## `excel_to_ics`使用方法
+## `excel_to_ics`使用方法 {#excel_to_ics}
 
 ### 依赖安装
 
 在运行脚本之前，请确保已安装以下依赖项：
 
 ```bash
-pip install pandas ics pytz
+pip install pandas icalendar pytz
 ```
 
 ### 运行脚本
@@ -98,6 +98,7 @@ pip install pandas ics pytz
 
 Excel 文件或 txt 文件应包含以下列：
 
+- `课程代码`: 课程的代码
 - `课程名称`：课程的名称
 - `考试地点`：考试的地点
 - `考试时间`：考试的时间，格式为 `YYYY-MM-DD (HH:MM-HH:MM)`
@@ -107,10 +108,11 @@ Excel 文件 或 txt 文件可以从 [上海交通大学教学信息服务网 > 
 
 假设你的 Excel 文件 `exam_info.xlsx` 或 txt 文件 `exam_info.txt` 内容如下：
 
-| 课程名称 | 考试地点 | 考试时间                |
-| -------- | -------- | ----------------------- |
-| 数学     | 教室101  | 2023-12-20 (09:00-11:00) |
-| 英语     | 教室102  | 2023-12-21 (13:00-15:00) |
+| 课程代码 | 课程名称                 | 考试地点 | 考试时间                |
+| -------- | ------------------------ | -------- | ----------------------- |
+| CS2501   | 离散数学                 | 上院114  | 2025-01-01 (11:40-15:40) |
+| PHY1252  | 大学物理                 | 中院514  | 2025-01-02 (11:40-15:40) |
+| MATH1207 | 概率统计                 | 上院315  | 2025-01-03 (11:40-15:40) |
 
 ### 注意事项
 

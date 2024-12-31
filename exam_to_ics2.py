@@ -1,5 +1,5 @@
-from ics import Calendar, Event
 from datetime import datetime
+import icalendar
 import os
 import sys
 import pytz
@@ -48,15 +48,18 @@ else:
 
 # 生成ICS文件保存路径
 ics_name = f"{year}-{year+1}-第{term+1}学期考试安排.ics"
-ics_path = os.path.join(running_path + "\\data", ics_name)
+directory = os.path.join(running_path, "data")
+if not os.path.exists(directory):
+    os.makedirs(directory)
+ics_path = os.path.join(directory, ics_name)
 
 # 创建日历对象
-c = Calendar()
+c = icalendar.Calendar()
 
 # 设置日历的默认时区
 c.timezone = pytz.timezone('Asia/Shanghai')
 
-# 遍历DataFrame的每一行来构建事件并添加到日历中
+# 遍历考试安排信息来构建事件并添加到日历中
 for exam in exam_schedule:
     course_name = exam.course_name
     course_id = exam.course_id
@@ -66,21 +69,20 @@ for exam in exam_schedule:
     # 设置时区为北京时间
     beijing_tz = pytz.timezone('Asia/Shanghai')
 
-    # 组合日期和时间，转换为ics要求的格式
-    start_datetime = datetime.combine(date, time[0])
-    start_datetime = beijing_tz.localize(start_datetime)
-    end_datetime = datetime.combine(date, time[1])
-    end_datetime = beijing_tz.localize(end_datetime)
+    # 组合日期和时间，转换为icalendar要求的格式
+    start_datetime = datetime.combine(date, time[0], tzinfo=beijing_tz)
+    end_datetime = datetime.combine(date, time[1], tzinfo=beijing_tz)
 
-    event = Event()
-    event.name = course_id + course_name + "考试"
-    event.begin = start_datetime
-    event.end = end_datetime
-    event.location = location
-    c.events.add(event)
+    event = icalendar.Event()
+    event.add("summary", f"{course_id} {course_name} 考试")
+    event.add("location", location)
+    event.add("dtstart", start_datetime)
+    event.add("dtend", end_datetime)
+    c.add_component(event)
 
 # 将日历对象转换为.ics文件内容并写入文件
-with open(ics_path, "w", encoding="utf-8") as f:
-    f.writelines(c.serialize())
+with open(ics_path, "wb") as f:
+    icalendar_with_seperate_lines = c.to_ical().replace(b"END:VEVENT", b"END:VEVENT\n")
+    f.write(icalendar_with_seperate_lines)
 
 print(f"已生成ICS文件：{ics_path}")
