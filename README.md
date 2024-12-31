@@ -4,7 +4,7 @@
 
 [**excel_to_ics**](#excel_to_ics)用于将 SJTU 教学信息服务网导出的考试安排从 Excel 文件转换为 ICS 文件，以便导入到日历应用中。
 
-## `exam_to_ics2`使用方法 {#exam_to_ics2}
+## `exam_to_ics2`使用方法 {# exam_to_ics2}
 
 ### 依赖安装
 
@@ -55,7 +55,7 @@ pip install icalender pytz pysjtu
 - 脚本默认使用 `Asia/Shanghai` 时区。
 
 
-## `excel_to_ics`使用方法 {#excel_to_ics}
+## `excel_to_ics`使用方法 {# excel_to_ics}
 
 ### 依赖安装
 
