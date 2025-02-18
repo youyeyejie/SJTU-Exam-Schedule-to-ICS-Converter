@@ -47,8 +47,6 @@ pip install icalender pytz pysjtu
 - `date`：考试的日期，格式为 `[datetime.data]`
 - `time`：考试的时间，格式为 `[datetime.time(开始时间), datetime.time(结束时间)]`
 
-运行脚本后，将生成一个名为 `exam_schedule.ics` 的 ICS 文件，包含所有考试安排。
-
 ### 注意事项
 
 - 确保日期和时间格式正确。
